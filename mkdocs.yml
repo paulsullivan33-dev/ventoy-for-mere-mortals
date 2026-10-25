@@ -1,0 +1,27 @@
+site_name: Ventoy for Mere Mortals
+site_description: One USB stick that boots many disk images. Installing Ventoy on it once, copying ISO, WIM and IMG files on with ordinary file tools, choosing one from a boot menu, and the configuration, persistence and limits that come with it.
+site_url: https://paulsullivan33-dev.github.io/ventoy-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Ventoy Is: what-ventoy-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Getting Ventoy: getting-ventoy.md
+  - Installing Ventoy: installing-ventoy.md
+  - Your First Boot: your-first-boot.md
+  - Adding and Organising Images: adding-and-organising-images.md
+  - Updating Ventoy: updating-ventoy.md
+  - Configuration: configuration.md
+  - Persistence: persistence.md
+  - Answer Files and Injection: answer-files-and-injection.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

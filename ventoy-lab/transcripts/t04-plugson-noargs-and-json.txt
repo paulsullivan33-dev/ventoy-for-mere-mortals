@@ -1,0 +1,11 @@
+$ bash VentoyPlugson.sh   (no device)
+Usage:  sudo bash VentoyPlugson.sh [OPTION] /dev/sdX
+  OPTION: (optional)
+   -H x.x.x.x  http server IP address (default is 127.0.0.1)
+   -P PORT     http server PORT (default is 24681)
+   -h          print this help
+
+exit=0
+
+$ python3 -m json.tool plugin/ventoy/ventoy.json > /dev/null && echo VALID JSON
+plugin/ventoy/ventoy.json: valid JSON

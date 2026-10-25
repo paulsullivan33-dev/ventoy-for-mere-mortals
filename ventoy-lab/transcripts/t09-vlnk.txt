@@ -1,0 +1,10 @@
+$ bash VentoyVlnk.sh -c ../vlnk/test-image.iso
+overlay
+btrfs
+btrfs is not supported!
+exit=1
+total 4
+drwxrwx--- 1 root root  28 Oct 25 00:24 .
+drwxrwx--- 1 root root 204 Oct 25 00:24 ..
+-rw-rw---- 1 root root  23 Oct 25 00:24 test-image.iso
+$ bash VentoyVlnk.sh -l ../vlnk/test-image.iso.vlnk.img  (if created)

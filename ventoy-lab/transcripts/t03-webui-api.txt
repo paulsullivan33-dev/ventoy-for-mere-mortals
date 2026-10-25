@@ -1,0 +1,18 @@
+$ curl -s -X POST http://127.0.0.1:24680/vtoy/json -d {"method":"sysinfo"}
+{
+    "token": "<redacted session token>",
+    "language": "",
+    "ventoy_ver": "1.1.18",
+    "partstyle": 0,
+    "busy": false,
+    "process_disk": "",
+    "process_type": ""
+}
+
+$ curl -s -X POST http://127.0.0.1:24680/vtoy/json -d {"method":"get_dev_list"}
+{
+    "result": "tokenerror"
+}
+$ curl -s -X POST .../vtoy/json -d {"method":"get_dev_list","token":"<session token from sysinfo>"}
+{"list":[]}
+(empty list: the server offers no install target in this sandbox)

@@ -1,0 +1,12 @@
+$ file ventoy.disk.img
+ventoy.disk.img: DOS/MBR boot sector, code offset 0x3c+2, OEM-ID "mkfs.fat", root entries 512, Media descriptor 0xf8, sectors/FAT 254, sectors/track 63, heads 255, sectors 65536 (volumes > 32 MB), serial number 0x1b438741, label: "VTOYEFI    ", FAT (16 bit)
+$ fdisk -l ventoy.disk.img
+$ file ../ventoy-1.1.18/boot/boot.img; tail signature check
+../ventoy-1.1.18/boot/boot.img: DOS/MBR boot sector
+$ xz -dkc ../ventoy-1.1.18/boot/core.img.xz > core.img; file core.img
+core.img: data
+total 28788
+drwxrwx--- 1 root root       46 Oct 25 00:23 .
+drwxrwx--- 1 root root      196 Oct 25 00:23 ..
+-rw-rw---- 1 root root  1048064 Oct 25 00:23 core.img
+-rw-rw---- 1 root root 33554432 Oct 25 00:23 ventoy.disk.img

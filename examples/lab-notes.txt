@@ -1,0 +1,93 @@
+The lab — the real 1.1.18 release, taken
+apart in a sandbox with no disk to spare
+====================================================================
+
+The lab is the official Linux package
+of Ventoy 1.1.18, downloaded from the
+project's GitHub release page on the
+build machine (an Ubuntu sandbox,
+x86_64):
+
+  * ventoy-1.1.18-linux.tar.gz
+    (20,320,548 bytes), SHA-256 verified
+    against the release's sha256.txt
+    before anything ran (t00).
+  * ventoy-1.1.18-livecd.iso
+    (195,989,504 bytes), SHA-256
+    verified the same way (t11).
+
+What the lab ran, and where the
+evidence sits (ventoy-lab/transcripts/):
+
+  * t00 — release identification,
+    checksum match, package inventory.
+  * t01 — Ventoy2Disk.sh with no
+    arguments: its full usage text,
+    including the -l, -L and -n options
+    the package README does not list.
+  * t02 — the installer against a
+    device that does not exist:
+    "is NOT a valid device", clean
+    exit, both for -i and -l.
+  * t03 — VentoyWeb.sh's server started
+    for real; its page fetched
+    (45,730 bytes of the tool's own
+    HTML); its API asked for sysinfo
+    (version 1.1.18, a session token)
+    and the device list, which came
+    back empty: the sandbox offers no
+    install targets.
+  * t04 — VentoyPlugson.sh with no
+    device prints its usage (it needs
+    one); the package's sample
+    ventoy.json validated with
+    python3 -m json.tool.
+  * t05 — CreatePersistentImg.sh -s 64,
+    run for real: the image file was
+    written, then the script stopped
+    at losetup — this sandbox has no
+    loop devices.
+  * t06 — the script's product made by
+    its final steps directly: mkfs.ext4
+    on a plain file, label casper-rw
+    confirmed by blkid, a
+    persistence.conf written inside
+    and read back with debugfs,
+    without mounting anything.
+  * t07 — the boot payload identified:
+    boot.img is a genuine MBR boot
+    sector; core.img.xz decompresses to
+    the 1,048,064-byte GRUB core image;
+    ventoy.disk.img.xz decompresses to
+    33,554,432 bytes.
+  * t08 — that disk image opened with
+    mtools: a FAT16 filesystem labelled
+    VTOYEFI, holding grub/, EFI/,
+    ventoy/, tool/ and
+    ENROLL_THIS_KEY_IN_MOKMANAGER.cer.
+    boot.img's last two bytes are
+    55 aa, checked with od.
+  * t09 — VentoyVlnk.sh -c against a
+    dummy image on the sandbox's btrfs
+    volume: "btrfs is not supported!"
+  * t10 — VentoyGUI.x86_64 launched
+    with no display: exits at once,
+    code 1, silently.
+  * t11 — the LiveCD: an El Torito
+    image whose EFI/boot holds a
+    kernel (11 MB) and a 178 MB initrd
+    carrying the live installer system.
+
+The sandbox's ceiling, stated plainly:
+no loop devices exist (/dev has no
+loop nodes and creating device files
+is refused), and there is no spare
+disk of any kind. Ventoy's installer
+writes to whole disks, so no
+installation was performed or faked,
+and no machine booted from a stick.
+Chapters 4, 5, 7, 9 (in part), 10 and
+the Plugson pages of chapter 8 are
+documented-only for exactly that
+reason, and criteria.md keeps the
+ledger.

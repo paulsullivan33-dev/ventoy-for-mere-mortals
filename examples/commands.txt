@@ -1,0 +1,74 @@
+Ventoy — the distilled commands
+====================================================================
+Placeholders: /dev/sdX is your stick's
+whole-disk device (/dev/sdb, never a
+partition like /dev/sdb1). Run the
+installer commands as root (sudo).
+
+DOWNLOAD AND CHECK (chapter 3)
+--------------------------------------------------------------------
+  sha256sum ventoy-1.1.18-linux.tar.gz
+                                   # compare with sha256.txt from
+                                   # the same release
+  certutil -hashfile ventoy-1.1.18-windows.zip SHA256
+                                   # the same check, on Windows
+
+INSTALL (chapter 4)
+--------------------------------------------------------------------
+  lsblk                            # find the stick's disk name
+  sudo bash Ventoy2Disk.sh         # no arguments: prints usage
+  sudo bash Ventoy2Disk.sh -i /dev/sdX
+                                   # install (refuses if Ventoy is
+                                   # already there)
+  sudo bash Ventoy2Disk.sh -I /dev/sdX
+                                   # force install, no questions
+  sudo bash Ventoy2Disk.sh -i -g /dev/sdX
+                                   # GPT instead of MBR
+  sudo bash Ventoy2Disk.sh -i -r 2048 /dev/sdX
+                                   # keep 2048 MiB spare at the end
+  sudo bash Ventoy2Disk.sh -i -S /dev/sdX
+                                   # install without secure-boot
+                                   # support (default is with it)
+  sudo bash VentoyWeb.sh           # the installer as a web page:
+                                   # http://127.0.0.1:24680
+
+ON THE STICK (chapters 5-6)
+--------------------------------------------------------------------
+  cp ubuntu-24.04.iso /media/$USER/Ventoy/linux/
+                                   # adding an image is copying it
+  rm /media/$USER/Ventoy/linux/ubuntu-24.04.iso
+                                   # removing one is deleting it
+
+VERSION AND UPDATE (chapter 7)
+--------------------------------------------------------------------
+  sudo bash Ventoy2Disk.sh -l /dev/sdX
+                                   # version installed on the stick
+  sudo bash Ventoy2Disk.sh -u /dev/sdX
+                                   # update; images stay untouched
+
+CONFIGURATION (chapter 8)
+--------------------------------------------------------------------
+  python3 -m json.tool /media/$USER/Ventoy/ventoy/ventoy.json
+                                   # validity check; silence is bad
+  sudo bash VentoyPlugson.sh /dev/sdX
+                                   # editor page:
+                                   # http://127.0.0.1:24681
+
+PERSISTENCE (chapter 9)
+--------------------------------------------------------------------
+  sudo bash CreatePersistentImg.sh
+                                   # 1 GB, ext4, label casper-rw
+  sudo bash CreatePersistentImg.sh -s 4096 -l persistence -c persistence.conf
+                                   # 4 GB, Debian-style
+  sudo bash ExtendPersistentImg.sh persistence.dat 2048
+                                   # grow a backend file by 2 GB
+  blkid persistence.dat            # what a backend file is:
+                                   # LABEL="casper-rw" TYPE="ext4"
+
+VLNK (chapters 1, 11)
+--------------------------------------------------------------------
+  sudo bash VentoyVlnk.sh -c /path/to/image.iso
+                                   # makes image.iso.vlnk; copy it
+                                   # to the stick
+  sudo bash VentoyVlnk.sh -l image.iso.vlnk
+                                   # read a vlnk file back

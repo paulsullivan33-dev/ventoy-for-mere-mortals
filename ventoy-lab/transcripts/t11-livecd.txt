@@ -1,0 +1,42 @@
+$ sha256sum ventoy-1.1.18-livecd.iso
+ee3917bd5a9973c0b2f8f3ef85048bf68ae089ec88f5561ad78b6ad308b51ab5  ventoy-livecd.iso
+(published: ee3917bd5a9973c0b2f8f3ef85048bf68ae089ec88f5561ad78b6ad308b51ab5)
+
+$ 7z l ventoy-1.1.18-livecd.iso
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:2 OPEN_MAX:4096
+
+Scanning the drive for archives:
+1 file, 195989504 bytes (187 MiB)
+
+Listing archive: ventoy-livecd.iso
+
+--
+Path = ventoy-livecd.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 193585152
+Tail Size = 2404352
+Created = 2026-10-09 03:39:21.00
+Modified = 2026-10-09 03:39:21.00
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2021-09-29 09:08:27 D....                            EFI
+2020-08-30 09:52:59 .....           40           40  EFI/VentoyLiveCD
+2026-10-09 03:39:21 D....                            EFI/boot
+2026-10-09 03:39:21 .....         2048         2048  EFI/boot/boot.cat
+2020-08-30 11:52:26 .....      1417216      1417216  EFI/boot/bootx64.efi
+2020-09-01 18:35:32 .....       320736       320736  EFI/boot/cdrom.img
+2026-10-09 03:39:20 .....      2097152      2097152  EFI/boot/efi.img
+2026-10-09 03:39:21 .....          566          566  EFI/boot/grub.cfg
+2026-10-09 03:39:20 .....    178451968    178451968  EFI/boot/initrd
+2021-03-20 10:38:42 .....     11222496     11222496  EFI/boot/vmlinuz
+                    .....         2048         2048  [BOOT]/1-Boot-NoEmul.img
+                    .....      2097152      2097152  [BOOT]/2-Boot-NoEmul.img
+------------------- ----- ------------ ------------  ------------------------
+2026-10-09 03:39:21          195611422    195611422  10 files, 2 folders
+
+Warnings: 1

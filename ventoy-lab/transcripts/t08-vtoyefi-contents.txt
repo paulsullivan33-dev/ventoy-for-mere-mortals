@@ -1,0 +1,114 @@
+$ mdir -i ventoy.disk.img ::
+ Volume in drive : is VTOYEFI    
+ Volume Serial Number is 1B43-8741
+Directory for ::/
+
+GRUB         <DIR>     2026-10-09   3:39  grub
+VENTOY       <DIR>     2026-10-09   3:39  ventoy
+EFI          <DIR>     2026-10-09   3:39 
+ENROLL~1 CER      1420 2026-10-09   3:39  ENROLL_THIS_KEY_IN_MOKMANAGER.cer
+TOOL         <DIR>     2026-10-09   3:39  tool
+        5 files               1 420 bytes
+                          4 486 144 bytes free
+
+
+$ mdir -i ventoy.disk.img -/ ::
+ Volume in drive : is VTOYEFI    
+ Volume Serial Number is 1B43-8741
+Directory for ::/
+
+GRUB         <DIR>     2026-10-09   3:39  grub
+VENTOY       <DIR>     2026-10-09   3:39  ventoy
+EFI          <DIR>     2026-10-09   3:39 
+ENROLL~1 CER      1420 2026-10-09   3:39  ENROLL_THIS_KEY_IN_MOKMANAGER.cer
+TOOL         <DIR>     2026-10-09   3:39  tool
+        5 files               1 420 bytes
+
+Directory for ::/grub
+
+.            <DIR>     2026-10-09   3:39 
+..           <DIR>     2026-10-09   3:39 
+GRUB     CFG     91301 2026-10-09   3:39  grub.cfg
+ARM64-~1     <DIR>     2026-10-09   3:39  arm64-efi
+CHECKSUM CFG      2609 2026-10-09   3:39  checksum.cfg
+DEBUG    CFG      9979 2026-10-09   3:39  debug.cfg
+DISTRO       <DIR>     2026-10-09   3:39  distro
+FONTS        <DIR>     2026-10-09   3:39  fonts
+MENUTA~1 GZ      31708 2026-10-09   3:39  menu.tar.gz
+HWINFO   CFG      2133 2026-10-09   3:39  hwinfo.cfg
+I386-EFI     <DIR>     2026-10-09   3:39  i386-efi
+I386-PC      <DIR>     2026-10-09   3:39  i386-pc
+KEYBOARD CFG      2617 2026-10-09   3:39  keyboard.cfg
+LOCALB~1 CFG      7993 2026-10-09   3:39  localboot.cfg
+MENULANG CFG      4348 2026-10-09   3:39  menulang.cfg
+MIPS64~1     <DIR>     2026-10-09   3:39  mips64el-efi
+POWER    CFG       811 2026-10-09   3:39  power.cfg
+THEMES       <DIR>     2026-10-09   3:39  themes
+X86_64~1     <DIR>     2026-10-09   3:39  x86_64-efi
+HELPTA~1 GZ      12223 2026-10-09   3:39  help.tar.gz
+       20 files             165 722 bytes
+
+Directory for ::/grub/arm64-efi
+
+.            <DIR>     2026-10-09   3:39 
+..           <DIR>     2026-10-09   3:39 
+NORMAL   MOD    212984 2026-10-09   3:39  normal.mod
+ADLER32  MOD       644 2026-10-09   3:39  adler32.mod
+AFFS     MOD      3168 2026-10-09   3:39  affs.mod
+AFS      MOD      3340 2026-10-09   3:39  afs.mod
+ARCHELP  MOD      1820 2026-10-09   3:39  archelp.mod
+BFS      MOD      3676 2026-10-09   3:39  bfs.mod
+BLSCFG   MOD      5556 2026-10-09   3:39  blscfg.mod
+BSWAP_~1 MOD      1324 2026-10-09   3:39  bswap_test.mod
+BTRFS    MOD      9092 2026-10-09   3:39  btrfs.mod
+CBFS     MOD      1640 2026-10-09   3:39  cbfs.mod
+CMDLIN~1 MOD      1480 2026-10-09   3:39  cmdline_cat_test.mod
+CMP      MOD      1124 2026-10-09   3:39  cmp.mod
+CMP_TEST MOD      2096 2026-10-09   3:39  cmp_test.mod
+COMMAND  LST      1148 2026-10-09   3:39  command.lst
+CPIO_BE  MOD      1588 2026-10-09   3:39  cpio_be.mod
+CPIO     MOD      1564 2026-10-09   3:39  cpio.mod
+CRC64    MOD       760 2026-10-09   3:39  crc64.mod
+CRYPTO~1 MOD      5460 2026-10-09   3:39  cryptodisk.mod
+CRYPTO   LST       424 2026-10-09   3:39  crypto.lst
+CTZ_TEST MOD      1040 2026-10-09   3:39  ctz_test.mod
+DATEHOOK MOD       960 2026-10-09   3:39  datehook.mod
+
+$ od -An -tx1 -j 510 -N 2 ../ventoy-1.1.18/boot/boot.img   (MBR signature)
+ 55 aa
+$ mdir -i ventoy.disk.img ::/EFI/BOOT
+ Volume in drive : is VTOYEFI    
+ Volume Serial Number is 1B43-8741
+Directory for ::/EFI/BOOT
+
+.            <DIR>     2026-10-09   3:39 
+..           <DIR>     2026-10-09   3:39 
+GRUBIA32 EFI     58488 2026-10-09   3:39  grubia32.efi
+BOOTAA64 EFI   2236416 2026-10-09   3:39 
+BOOTMIPS EFI   2908160 2026-10-09   3:39 
+MMIA32   EFI    678576 2026-10-09   3:39  mmia32.efi
+BOOTIA32 EFI    742064 2026-10-09   3:39 
+GRUBX6~1 EFI   1931696 2026-10-09   3:39  grubx64_real.efi
+GRUBIA~1 EFI   1296816 2026-10-09   3:39  grubia32_real.efi
+MMX64    EFI    879008 2026-10-09   3:39  mmx64.efi
+BOOTX64  EFI   1045176 2026-10-09   3:39 
+FBX64    EFI     76208 2026-10-09   3:39  fbx64.efi
+       12 files          11 852 608 bytes
+                          4 486 144 bytes free
+
+$ mdir -i ventoy.disk.img ::/ventoy
+ Volume in drive : is VTOYEFI    
+ Volume Serial Number is 1B43-8741
+Directory for ::/ventoy
+
+.            <DIR>     2026-10-09   3:39 
+..           <DIR>     2026-10-09   3:39 
+IPXE     KRN     69277 2026-10-09   3:39  ipxe.krn
+UDF_IA32 EFI     41264 2026-10-09   3:39  udf_ia32.efi
+WIMBOO~1 XZ      18356 2026-10-09   3:39  wimboot.i386.efi.xz
+ISO966~1 EFI     49008 2026-10-09   3:39  iso9660_aa64.efi
+7Z           <DIR>     2026-10-09   3:39  7z
+DRAGON~1 XZ     345044 2026-10-09   3:39  dragonfly.mfs.xz
+COMMON~1 XZ     322444 2026-10-09   3:39  common_bootmgr.xz
+VENTOY~1 XZ        876 2026-10-09   3:39  ventoy_efiboot.img.xz
+COMMON~2 XZ       4316 2026-10-09   3:39  common_bcd.xz

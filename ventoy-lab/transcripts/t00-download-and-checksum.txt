@@ -1,0 +1,31 @@
+$ curl -s https://api.github.com/repos/ventoy/Ventoy/releases/latest
+  "tag_name": "v1.1.18",
+      "name": "ventoy-1.1.18-linux.tar.gz",
+      "name": "ventoy-1.1.18-livecd.iso",
+
+$ sha256sum ventoy-1.1.18-linux.tar.gz
+d86ff9de63d94c8b8f1f6b14d23c55af4b88e8207bf2893890892a6a97b1ad54  ventoy-1.1.18-linux.tar.gz
+
+$ grep linux sha256.txt   (the official checksum file from the same release)
+d86ff9de63d94c8b8f1f6b14d23c55af4b88e8207bf2893890892a6a97b1ad54  ventoy-1.1.18-linux.tar.gz
+(checksums match)
+
+$ ls -la ventoy-1.1.18-linux.tar.gz
+-rw-r--r-- 20,320,548 bytes
+
+$ tar tzf ventoy-1.1.18-linux.tar.gz | head
+ventoy-1.1.18/CreatePersistentImg.sh
+ventoy-1.1.18/ExtendPersistentImg.sh
+ventoy-1.1.18/README
+ventoy-1.1.18/Ventoy2Disk.sh
+ventoy-1.1.18/VentoyGUI.x86_64
+ventoy-1.1.18/VentoyPlugson.sh
+ventoy-1.1.18/VentoyVlnk.sh
+ventoy-1.1.18/VentoyWeb.sh
+ventoy-1.1.18/WebUI/...
+ventoy-1.1.18/boot/boot.img
+ventoy-1.1.18/boot/core.img.xz
+ventoy-1.1.18/plugin/ventoy/ventoy.json
+ventoy-1.1.18/tool/x86_64/...
+ventoy-1.1.18/ventoy/ventoy.disk.img.xz
+ventoy-1.1.18/ventoy/version

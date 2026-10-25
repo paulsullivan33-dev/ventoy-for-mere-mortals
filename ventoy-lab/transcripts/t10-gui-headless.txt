@@ -1,0 +1,2 @@
+$ timeout 6 ./VentoyGUI.x86_64   (no display in sandbox)
+exit=1
